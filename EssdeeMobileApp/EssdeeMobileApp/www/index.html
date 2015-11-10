@@ -8,13 +8,16 @@
         For details, see http://go.microsoft.com/fwlink/?LinkID=617521
     -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
     <title>EssdeeMobileApp</title>
 
     <!-- EssdeeMobileApp references -->
     <link href="css/index.css" rel="stylesheet" />
+    <link rel="import" href="bower_components/paper-button/paper-button.html" />
 </head>
 <body>
     <p>Hello, your application is ready!</p>
+    <paper-button>Submit</paper-button>
 
     <!-- Cordova reference, this is added to your app when it's built. -->
     <script src="cordova.js"></script>
