@@ -14,15 +14,68 @@
     <!-- EssdeeMobileApp references -->
     <link href="css/index.css" rel="stylesheet" />
     <link rel="import" href="bower_components/paper-button/paper-button.html" />
+    <link rel="import" href="bower_components/paper-drawer-panel/paper-drawer-panel.html" />
+    <link rel="import" href="bower_components/paper-header-panel/paper-header-panel.html" />
+    <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html" />
+    <link rel="import" href="bower_components/paper-menu/paper-menu.html" />
+    <link rel="import" href="bower_components/paper-item/paper-item.html" />
+    <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html" />
+    <link rel="import" href="bower_components/iron-pages/iron-pages.html" />
+    <link rel="import" href="bower_components/iron-icons/iron-icons.html" />
+
 </head>
 <body>
     <p>Hello, your application is ready!</p>
-    <paper-button>Submit</paper-button>
+    <template is="dom-bind" id="app">
+        <paper-drawer-panel responsive-width="820px">
+            <paper-header-panel mode="waterfall-tall" tallClass="medium-tall" shadow="true" drawer>
 
-    <!-- Cordova reference, this is added to your app when it's built. -->
-    <script src="cordova.js"></script>
-    <script src="scripts/platformOverrides.js"></script>
+                <paper-toolbar style="background-color:#0097a7" class="medium-tall">
+                    <div class="avatar orange middle"></div>
+                    <div class="bottom">User</div>
+                </paper-toolbar>
 
-    <script src="scripts/index.js"></script>
+                <paper-menu selected="{{page}}">
+                    <paper-item label="Home" style="position:relative;display:block;">
+                        <span style="color:darkcyan">
+                            Home
+                        </span>
+                    </paper-item>
+
+                    <paper-item label="DueBills" style="position:relative;display:block;">
+                        <span style="color:darkcyan">
+                            DueBills
+                        </span>
+                    </paper-item>
+                </paper-menu>
+            </paper-header-panel>
+
+            <paper-header-panel main mode="standard">
+                <paper-toolbar style="background-color:#00b8d4">
+                    <paper-icon-button icon="menu" alt="menu" paper-drawer-toggle>
+                    </paper-icon-button>
+                    <div id="toolbarName" style="color:white">
+                        Home
+                    </div>
+                </paper-toolbar>
+                <iron-pages selected="{{page}}" flex>
+                    <section>Home</section>
+                    <section>DueBills</section>
+                </iron-pages>
+
+</paper-drawer-panel>
+    </template>
+
+        <!-- Cordova reference, this is added to your app when it's built. -->
+        <script src="cordova.js"></script>
+        <script src="scripts/platformOverrides.js"></script>
+
+        <script src="scripts/index.js"></script>
+        <script>
+            document.addEventListener('WebComponentsReady', function () {
+                var template = document.querySelector('template#app');
+                template.page = 0;
+            });            
+        </script>
 </body>
 </html>
