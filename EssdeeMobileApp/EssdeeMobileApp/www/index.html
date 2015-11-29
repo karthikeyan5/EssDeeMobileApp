@@ -179,7 +179,7 @@
                                     </paper-icon-item>
                                 </div>
                             </div>
-                            <paper-button style="width:250px;background-color:#e0e0e0;color:black;" class="buttons">View pending bills</paper-button>
+                            <paper-button onclick="toDueBills();" style="width:250px;background-color:#e0e0e0;color:black;" class="buttons">View pending bills</paper-button>
                         </paper-material>
 
                         <paper-material class="paper_material" elevation="3" style="height:140px">
@@ -194,7 +194,7 @@
                                     </paper-icon-item>
                                 </div>
                             </div>
-                            <paper-button style="width:250px;background-color:#e0e0e0;" class="buttons">View due bills</paper-button>
+                            <paper-button onclick="toDueBills();" style="width:250px;background-color:#e0e0e0;" class="buttons">View due bills</paper-button>
                         </paper-material>
 
                         <paper-material class="paper_material" elevation="3">
@@ -774,7 +774,12 @@
                     'Color 3',
                     'Color 4'
                 ];
-            });            
+            }); 
+            
+            function toDueBills(){
+                var template = document.querySelector('template#app');
+                template.page = 1;
+            }
         </script>
 </body>
 </html>
